@@ -1,6 +1,5 @@
 package com.socialMedia.simplesocialmedia.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,10 +17,13 @@ public class UserService {
 
 
 
-    public void save(UserEntity user) {
+    public void save(User user) {
         String encryptedPassword=this.passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
         userRepository.save(user);
 
+    }
+
+    public void getByUsername(String user1) {
     }
 }
